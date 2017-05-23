@@ -16,7 +16,10 @@
     if(window.Windows)
 	{
    		Windows.UI.WebUI.WebUIApplication.addEventListener('activated', function(args) {
-      			window.location.href ='https://google.com/';
+			    var ViewManagement = Windows.UI.ViewManagement;
+    			    var ApplicationViewWindowingMode = ViewManagement.ApplicationViewWindowingMode;
+    			    var ApplicationView = ViewManagement.ApplicationView;
+			    ApplicationView.preferredLaunchWindowingMode = ApplicationViewWindowingMode.fullScreen;
 		});
 
 	}
