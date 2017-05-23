@@ -7,12 +7,22 @@
     <title>Proof</title>
     <link rel="stylesheet" type="text/css" href="Content/fonts/open-sans.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
+
 <script type="text/javascript">
-    alert('RUN');
+    (function () {
+        "use strict";
+
+        debugger;
+
+        var app = WinJS.Application;
+        app.start();
+    })();
 </script>
+
     <svg id="test" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="display: none;">
     <symbol id="icon--check" viewBox="0 0 512 512">
     <path d="M171.4 461.7L0 284.9l53.1-51.5 117.6 121.4L458.3 50.3 512 101z" />
