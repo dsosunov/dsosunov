@@ -18,13 +18,15 @@
         alert('onload');
         if(window.Windows)
 	{
-   		Windows.UI.WebUI.WebUIApplication.addEventListener('activated', function(args) {
+   		/*Windows.UI.WebUI.WebUIApplication.addEventListener('activated', function(args) {
 			    var ViewManagement = Windows.UI.ViewManagement;
     			    var ApplicationViewWindowingMode = ViewManagement.ApplicationViewWindowingMode;
     			    var ApplicationView = ViewManagement.ApplicationView;
 			    ApplicationView.preferredLaunchWindowingMode = ApplicationViewWindowingMode.fullScreen;
-		});
+		});*/
 
+		var messageDialog = new Windows.UI.Popups.MessageDialog("Hello, world!", "Alert");
+		messageDialog.showAsync();
 	}
    }
 </script>
