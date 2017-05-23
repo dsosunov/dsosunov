@@ -13,22 +13,42 @@
 <body>
 
 <script type="text/javascript">
-   window.onload = function()
-   {
-        alert('onload');
-        if(window.Windows)
-	{
-   		/*Windows.UI.WebUI.WebUIApplication.addEventListener('activated', function(args) {
-			    var ViewManagement = Windows.UI.ViewManagement;
-    			    var ApplicationViewWindowingMode = ViewManagement.ApplicationViewWindowingMode;
-    			    var ApplicationView = ViewManagement.ApplicationView;
-			    ApplicationView.preferredLaunchWindowingMode = ApplicationViewWindowingMode.fullScreen;
-		});*/
+(function () {
+	"use strict";
 
-		var messageDialog = new Windows.UI.Popups.MessageDialog("Hello, world!", "Alert");
-		messageDialog.showAsync();
+	var fs = Windows.UI.ViewManagement.ApplicationView.getForCurrentView();
+
+	addEventListener('load', function () {
+	    var btnFullScreen = document.getElementById('btnGoFullScreen');
+
+	    document.querySelector('body').addEventListener('keydown', function (e) {
+	        if (e.keyCode === 27 /*ESC key*/) {
+	            fs.exitFullScreenMode();
+	            // hideFullScreenMessage();
+	        }
+	    });
+
+	    btnFullScreen.addEventListener('click', function () {
+	        fs.tryEnterFullScreenMode();
+	        // showFullScreenMessage();
+	    });
+
+	    document.addEventListener('fullscreenchange', function (e) {
+	        fs.tryEnterFullScreenMode();
+	        // showFullScreenMessage();
+	    });
+	});
+
+	function showFullScreenMessage() {
+	    var msgDiv = document.getElementById('fullScreenMessage');
+	    msgDiv.className = 'show message';
 	}
-   }
+
+	function hideFullScreenMessage() {
+	    var msgDiv = document.getElementById('fullScreenMessage');
+	    msgDiv.className = 'hide message';
+	}
+})();
 </script>
 
     <svg id="test" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="display: none;">
