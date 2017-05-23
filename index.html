@@ -21,29 +21,16 @@
 
 	addEventListener('load', function () {
 	    debugger;
-	    var btnFullScreen = document.getElementById('btnGoFullScreen');
-
-	    document.querySelector('body').addEventListener('keydown', function (e) {
-	        if (e.keyCode === 27 /*ESC key*/) {
-	            fs.exitFullScreenMode();
-	            // hideFullScreenMessage();
-	        }
-	    });
-
-	    btnFullScreen.addEventListener('click', function () {
-	        fs.tryEnterFullScreenMode();
-	        // showFullScreenMessage();
-	    });
 
 	    document.addEventListener('fullscreenchange', function (e) {
 	        fs.tryEnterFullScreenMode();
-	        // showFullScreenMessage();
+	        showFullScreenMessage();
 	    });
 	});
 
 	function showFullScreenMessage() {
-	    var msgDiv = document.getElementById('fullScreenMessage');
-	    msgDiv.className = 'show message';
+		var msgBox = new Windows.UI.Popups.MessageDialog('showFullScreenMessage');
+		msgBox.showAsync();	
 	}
 
 	function hideFullScreenMessage() {
