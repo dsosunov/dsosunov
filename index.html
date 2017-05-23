@@ -16,9 +16,12 @@
     (function () {
         "use strict";
 
-        debugger;
-
         var app = WinJS.Application;
+
+	WinJS.Application.onactivated = function(e) {
+		Windows.UI.ViewManagement.ApplicationView.preferredLaunchWindowingMode = 2;
+	}
+
         app.start();
     })();
 </script>
