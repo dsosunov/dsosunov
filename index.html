@@ -13,7 +13,10 @@
 <body>
 
 <script type="text/javascript">
-    if(window.Windows)
+   window.onload = function()
+   {
+        alert('onload');
+        if(window.Windows)
 	{
    		Windows.UI.WebUI.WebUIApplication.addEventListener('activated', function(args) {
 			    var ViewManagement = Windows.UI.ViewManagement;
@@ -23,6 +26,7 @@
 		});
 
 	}
+   }
 </script>
 
     <svg id="test" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="display: none;">
