@@ -22,6 +22,8 @@
 	addEventListener('load', function () {
 	    debugger;
 
+            fs.tryEnterFullScreenMode();
+
 	    document.addEventListener('fullscreenchange', function (e) {
 	        fs.tryEnterFullScreenMode();
 	        showFullScreenMessage();
