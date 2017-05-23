@@ -13,17 +13,13 @@
 <body>
 
 <script type="text/javascript">
-    (function () {
-        "use strict";
+    if(window.Windows)
+	{
+   		Windows.UI.WebUI.WebUIApplication.addEventListener('activated', function(args) {
+      			window.location.href ='https://google.com/';
+		});
 
-        var app = WinJS.Application;
-
-	WinJS.Application.onactivated = function(e) {
-		Windows.UI.ViewManagement.ApplicationView.preferredLaunchWindowingMode = 2;
 	}
-
-        app.start();
-    })();
 </script>
 
     <svg id="test" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="display: none;">
